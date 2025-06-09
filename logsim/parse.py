@@ -520,7 +520,7 @@ class Parser:
             if self.symbol.type == self.scanner.COMMA:
                 print("Expected a comma")
             else:
-                print("Did not expect a parameter")  # tested
+                print("Did not expect a parameter for this device")  # tested
         elif error_type == self.INVALID_RANGE:
             print("Expected number between 1 and 16 inclusive")
         elif error_type == self.INVALID_CONNECTION_SC:
