@@ -702,6 +702,8 @@ class Gui(wx.Frame):
         self.monitors = monitors
         self.network = network
         self.language = language
+        locale = wx.Locale(language)
+        locale.AddCatalog("locale")
 
         # Add simulation speed settings
         self.speed_settings = {
@@ -930,7 +932,7 @@ class Gui(wx.Frame):
         
         # Add/Remove monitor buttons
         monitor_btn_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        self.add_monitor_btn = wx.Button(self.control_panel, label=wx.GetTranslation("Add Monitor/s", self.language))
+        self.add_monitor_btn = wx.Button(self.control_panel, label=wx.GetTranslation("Add Monitor/s", domain="locale"))
         self.remove_monitor_btn = wx.Button(self.control_panel, label=wx.GetTranslation("Zap All", self.language))
         monitor_btn_sizer.Add(self.add_monitor_btn, 1, wx.RIGHT, 5)
         monitor_btn_sizer.Add(self.remove_monitor_btn, 1)
