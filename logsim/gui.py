@@ -702,7 +702,8 @@ class Gui(wx.Frame):
         self.monitors = monitors
         self.network = network
         self.language = language
-        if language == "es_ES.UTF-8":
+        print("self.language is",language)
+        if language == "es_ES.utf8":
             locale = wx.Locale(wx.LANGUAGE_SPANISH)
             locale.AddCatalog("locale")
         else:
@@ -937,7 +938,7 @@ class Gui(wx.Frame):
         # Add/Remove monitor buttons
         monitor_btn_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.add_monitor_btn = wx.Button(self.control_panel, label=wx.GetTranslation("Add Monitor/s", domain="locale"))
-        self.remove_monitor_btn = wx.Button(self.control_panel, label=wx.GetTranslation("Zap All", self.language))
+        self.remove_monitor_btn = wx.Button(self.control_panel, label=wx.GetTranslation("Zap All", domain="locale"))
         monitor_btn_sizer.Add(self.add_monitor_btn, 1, wx.RIGHT, 5)
         monitor_btn_sizer.Add(self.remove_monitor_btn, 1)
         
