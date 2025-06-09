@@ -702,8 +702,12 @@ class Gui(wx.Frame):
         self.monitors = monitors
         self.network = network
         self.language = language
-        locale = wx.Locale(language)
-        locale.AddCatalog("locale")
+        if language == "es_ES.UTF-8":
+            locale = wx.Locale(wx.LANGUAGE_SPANISH)
+            locale.AddCatalog("locale")
+        else:
+            locale = wx.Locale(wx.LANGUAGE_ENGLISH_UK)
+            locale.AddCatalog("locale")
 
         # Add simulation speed settings
         self.speed_settings = {
