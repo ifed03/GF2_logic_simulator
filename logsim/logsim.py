@@ -92,6 +92,8 @@ def main(arg_list):
                 lang = wx.LANGUAGE_TAMIL
             elif language in ["yo_NG.utf8", "yo_NG.UTF-8", "yo_NG"]:
                 lang = wx.LANGUAGE_YORUBA
+            elif language in ["kn_IN.utf8", "kn_IN.UTF-8", "kn_IN"]:
+                lang = wx.LANGUAGE_KANNADA
             # Add more languages as needed
 
             locale.Init(lang)
