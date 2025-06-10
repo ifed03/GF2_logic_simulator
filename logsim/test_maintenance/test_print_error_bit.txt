@@ -1,7 +1,7 @@
 DEVICES D1:DTYPE,
         D2:DTYPE,
         N1:NAND 2,
-        SI1:SIGGEN 10002001,
+        SI1:CLOCK 0,
         S1:SWITCH 0,
         S2:SWITCH 1,
         S3:SWITCH 0 ;

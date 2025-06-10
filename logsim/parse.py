@@ -50,8 +50,9 @@ class Parser:
             self.INVALID_PORT, self.INVALID_PORT_DTYPE,
             self.INVALID_PORT_XOR, self.NOT_I_PORT, self.PORT_OUT_RANGE, 
             self.NOT_END, self.REPEATED_MONITOR, self.REPEATED_DEVICE, 
-            self.MISSED_SEMICOLON, self.NONBINARY_WAVEFORM
-        ] = range(31)
+            self.MISSED_SEMICOLON, self.NONBINARY_WAVEFORM, self.NO_WAVEFORM, 
+            self.NO_PERIOD
+        ] = range(33)
         # Device types that require dot notation for ports
         self.dot_signals = {
             "IN": [self.devices.D_TYPE],
@@ -93,15 +94,18 @@ class Parser:
         
         if self.error_count == 0 and not self.network.check_network():
             print()
-            print("Network connectivity issues found")
+            print("Error: Network connectivity issues found")
             print()
             self.error_count += 1
             
         
         # check if no devices are present
-        if (self.error_count == 0) and (len(self.devices.find_devices()) == 0) and  (len(self.monitors.get_signal_names()) == 0):
+        if ((self.error_count == 0) and (len(self.devices.find_devices()) == 0) 
+        and (len(self.monitors.get_signal_names()[0]) == 0) 
+        and (len(self.monitors.get_signal_names()[1]) == 0)):
             self.error_count += 1
-            print("Empty File")
+            print()
+            print("Error: Empty File")
             print()
         
 
@@ -167,7 +171,7 @@ class Parser:
             error = self.devices.make_device(
                 device_id, self.devices.CLOCK, device_property=self.symbol.id)
             if error == self.devices.NO_QUALIFIER:
-                error = self.NO_NUMBER
+                error = self.NO_PERIOD
             elif error == self.devices.NO_ERROR:
                 error = self.NO_ERROR
             elif error == self.devices.INVALID_QUALIFIER:
@@ -177,7 +181,7 @@ class Parser:
             error = self.devices.make_device(
                 device_id, self.devices.SIGGEN, device_property=self.symbol.id)
             if error == self.devices.NO_QUALIFIER:
-                error = self.NO_NUMBER
+                error = self.NO_WAVEFORM
             elif error == self.devices.NO_ERROR:
                 error = self.NO_ERROR
             elif error == self.devices.INVALID_QUALIFIER:
@@ -521,7 +525,11 @@ class Parser:
         elif error_type == self.NO_DEVICE_TYPE:
             print("Expected a device type")  # tested
         elif error_type == self.NO_NUMBER:
-            print("Expected a number")  # tested
+            print("Expected number of inputs")  # tested
+        elif error_type == self.NO_PERIOD:
+            print("Expected a clock period")
+        elif error_type == self.NO_WAVEFORM:
+            print("Expected a waveform")
         elif error_type == self.INVALID_NAME:
             print("Invalid device name")
         elif error_type == self.NO_INITIALISATION_KEYWORD:
@@ -572,7 +580,7 @@ class Parser:
         print(f"LINE {self.symbol.line_number}:")
         print(self.scanner.print_error(self.symbol))
         print()
-        if self.symbol.type == self.scanner.COMMA:
+        if self.symbol.type == self.scanner.COMMA and self.parent != None:
             return
         if self.symbol.type == self.scanner.SEMICOLON:
             self.symbol = self.scanner.get_symbol()

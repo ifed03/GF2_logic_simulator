@@ -336,12 +336,12 @@ class Devices:
             # Device property is the binary waveform (a sequence of bits)
             if device_property is None:
                 error_type = self.NO_QUALIFIER
-            if str(device_property) >= '1'*len(str(device_property)):
-                print ('this is device property:', str(device_property))
-                error_type = self.INVALID_QUALIFIER
-            else:
+            elif set(list(device_property)).issubset({'0','1'}):
                 self.make_siggen(device_id, device_property)
                 error_type = self.NO_ERROR
+            else:
+                error_type = self.INVALID_QUALIFIER
+
 
         elif device_kind in self.gate_types:
             # Device property is the number of inputs

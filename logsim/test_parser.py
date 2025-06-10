@@ -260,7 +260,7 @@ def test_parser_error_devices(parser_with_error_devices, capsys):
         "Expected a semicolon prior to this",
         "Did not expect a parameter",
         "Expected a device type",
-        "Expected a number",
+        "Expected a clock period",
         "Expected a bit (0 or 1)",
         "Expected a comma or semicolon",
         "Expected DEVICES, CONNECT, MONITOR or END",
