@@ -112,6 +112,7 @@ def test_parser_error_devices(parser_with_error_devices, capsys):
         "Device has already been initialised",
         "Expected a bit (0 or 1)",
         "Expected a bit (0 or 1)",
+        "Clock period cannot be zero",
         "Device not found",
         "Device not found",
         "Device not found"
@@ -138,9 +139,10 @@ def test_parser_error_devices(parser_with_error_devices, capsys):
         "LINE 26:",
         "LINE 28:",
         "LINE 29:",
-        "LINE 43:",
-        "LINE 44:",
-        "LINE 48:"
+        "LINE 32:",
+        "LINE 45:",
+        "LINE 46:",
+        "LINE 50:",
     ]
 
     expected_indications = [
@@ -164,6 +166,7 @@ def test_parser_error_devices(parser_with_error_devices, capsys):
         "        S1:SIGGEN 1001001,\n                         ^",
         "        S4:SWITCH,\n                 ^",
         "        S5:SWITCH AND,\n                     ^",
+        "        C3:CLOCK 0;\n                  ^",
         "        D2.Q > N1.I1,\n               ^",
         "        D2.QBAR > N1.I2 ;\n",
         "        N1 ;\n           ^"

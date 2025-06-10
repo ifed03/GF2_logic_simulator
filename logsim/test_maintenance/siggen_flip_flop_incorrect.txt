@@ -27,7 +27,9 @@ DEVICES SI25:SIGGEN,
         S2:SWITCH 1,
         S4:SWITCH,
         S5:SWITCH AND,
-        S3:SWITCH 0 ;
+        S3:SWITCH 0, 
+
+        C3:CLOCK 0;
 
 /* connect inputs and outputs */
 CONNECT S1 > D1.SET,
