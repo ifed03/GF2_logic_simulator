@@ -710,7 +710,7 @@ class Gui(wx.Frame):
             'x8': 25,    # 25ms
             'x16': 10    # 10ms
             }
-        self.current_speed = 'x16'  # Start at normal speed
+        self.current_speed = 'x1'  # Start at normal speed
 
         # Initialize theme colors
         self.light_theme = {
@@ -1256,6 +1256,10 @@ class Gui(wx.Frame):
             self.reset_button.Enable()
             self.continuous_button.Enable()
             self.cycles_spin.Enable()
+            self.all_off_btn.Enable()
+            self.all_on_btn.Enable()
+            self.toggle_switch_btn.Enable()
+            self.switch_list.Enable()
 
     def reset_simulation(self):
         """Reset the simulation to its initial state."""
@@ -1320,7 +1324,7 @@ class Gui(wx.Frame):
             wx.MessageBox(
                 wx.GetTranslation(
                     "Error during simulation: {x}".format(x=str(e))
-                ), 
+                ),
                 wx.GetTranslation("Simulation Error"),
                 wx.OK | wx.ICON_ERROR
             )
