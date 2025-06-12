@@ -21,11 +21,10 @@ from monitors import Monitors
 from scanner import Scanner
 from parse import Parser
 
-import platform
-import subprocess
-
 import os
 
+import platform
+import subprocess
 def is_dark_mode():
     system = platform.system()
 
@@ -65,7 +64,6 @@ def is_dark_mode():
             return False  # Default to light if unknown
 
     return False  # Default fallback
-
 
 class MyGLCanvas(wxcanvas.GLCanvas):
     """Handle all drawing operations.
@@ -729,7 +727,9 @@ class Gui(wx.Frame):
                 'handle': wx.Colour(255, 255, 255)  # White
             }
         }
-
+        
+        self.current_theme = self.light_theme
+        
         # Add signal color sets for light and dark mode
         self.light_signal_colors = [
             (0.90, 0.10, 0.10),  # Hard Red (a strong, clear red)
@@ -751,7 +751,7 @@ class Gui(wx.Frame):
             (0.50, 0.20, 1.00),  # Neon Indigo (a deep, electric blue-purple)
             (0.80, 0.00, 1.00),  # Neon Violet (a radiant, intense purple)
         ]
-        
+
         # Automatically set theme based on system appearance
         if is_dark_mode():
             print("DARK MODE NOW")
@@ -794,7 +794,7 @@ class Gui(wx.Frame):
         
         # Canvas for drawing signals
         self.canvas = MyGLCanvas(main_panel, devices, monitors)
-        if wx.SystemSettings.GetAppearance().IsDark():
+        if is_dark_mode():
             self.canvas_signal_colors = self.dark_signal_colors
         else:
             self.canvas_signal_colors = self.light_signal_colors
@@ -861,7 +861,7 @@ class Gui(wx.Frame):
         self.switch_list.SetWindowStyle(current_style & ~wx.LC_SINGLE_SEL)
         
         # Add toggle button
-        self.toggle_switch_btn = wx.Button(self.control_panel, label="Toggle Selected")
+        self.toggle_switch_btn = wx.Button(self.control_panel, label=wx.GetTranslation("Toggle Selected"))
         self.toggle_switch_btn.Disable()  # Initially disabled until switches are selected
         
         # Add toggle buttons for all on/off
@@ -1247,13 +1247,13 @@ class Gui(wx.Frame):
                 current_signal = self.network.get_output_signal(device_id, output_id)
                 if current_signal is not None:
                     if current_signal == self.devices.HIGH:
-                        state = "HIGH"
+                        state = wx.GetTranslation("HIGH")
                     elif current_signal == self.devices.LOW:
-                        state = "LOW"
+                        state = wx.GetTranslation("LOW")
                     elif current_signal == self.devices.RISING:
-                        state = "RISING"
+                        state = wx.GetTranslation("RISING")
                     elif current_signal == self.devices.FALLING:
-                        state = "FALLING"
+                        state = wx.GetTranslation("FALLING")
                     else:
                         state = str(current_signal)
                     self.monitor_list.SetItem(index, 2, state)
@@ -1330,7 +1330,7 @@ class Gui(wx.Frame):
     def on_add_monitor(self, event):
         """Handle adding a new monitor."""
         # Create a dialog to select device and output
-        dialog = wx.Dialog(self, title="Add Monitor", size=(300, 150))
+        dialog = wx.Dialog(self, title=wx.GetTranslation("Add Monitor"), size=(300, 150))
         dialog_sizer = wx.BoxSizer(wx.VERTICAL)
         
         # Get all available signals
@@ -1343,17 +1343,17 @@ class Gui(wx.Frame):
             return
         # Add signal selection
         signal_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        signal_label = wx.StaticText(dialog, label="Signal:")
+        signal_label = wx.StaticText(dialog, label=wx.GetTranslation("Signal:"))
         signal_choice = wx.Choice(dialog, choices=non_monitored)
         signal_sizer.Add(signal_label, 0, wx.ALL | wx.CENTER, 5)
         signal_sizer.Add(signal_choice, 1, wx.ALL | wx.EXPAND, 5)
         
         # Add buttons
         button_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        ok_button = wx.Button(dialog, wx.ID_OK, "Add")
-        add_all_button = wx.Button(dialog, wx.NewId(), "Add All")
-        cancel_button = wx.Button(dialog, wx.ID_CANCEL, "Cancel")
-        
+        ok_button = wx.Button(dialog, wx.ID_OK, wx.GetTranslation("Add"))
+        add_all_button = wx.Button(dialog, wx.NewId(), wx.GetTranslation("Add All"))
+        cancel_button = wx.Button(dialog, wx.ID_CANCEL, wx.GetTranslation("Cancel"))
+
         button_sizer.Add(ok_button, 1, wx.ALL, 5)
         button_sizer.Add(add_all_button, 1, wx.ALL, 5)
         button_sizer.Add(cancel_button, 1, wx.ALL, 5)
@@ -1475,8 +1475,8 @@ class Gui(wx.Frame):
         for i, switch_id in enumerate(switch_ids):
             switch_name = self.devices.get_signal_name(switch_id, None)
             device = self.devices.get_device(switch_id)
-            state = "HIGH" if device.switch_state == self.devices.HIGH else "LOW"
-            
+            state = wx.GetTranslation("HIGH") if device.switch_state == self.devices.HIGH else wx.GetTranslation("LOW")
+
             index = self.switch_list.InsertItem(i, switch_name)
             self.switch_list.SetItem(index, 1, state)
             
@@ -1491,8 +1491,8 @@ class Gui(wx.Frame):
                 off_color = wx.Colour(180, 0, 0)     # Darker red
             
             self.switch_list.SetItemTextColour(index, 
-                on_color if state == "HIGH" else off_color)
-        
+                on_color if state == wx.GetTranslation("HIGH") else off_color)
+
         self.switch_list.RefreshItems(0, len(switch_ids)-1)
     
     def on_switch_selected(self, event):
@@ -1520,10 +1520,11 @@ class Gui(wx.Frame):
             [device_id, _] = self.devices.get_signal_ids(switch_name)
             
             # Toggle state
-            new_state = self.devices.LOW if current_state == "HIGH" else self.devices.HIGH
+            new_state = self.devices.LOW if current_state == wx.GetTranslation("HIGH") else self.devices.HIGH
             
             if self.devices.set_switch(device_id, new_state):
-                self.SetStatusText(f"Toggled {switch_name} to {new_state}")
+                self.SetStatusText(wx.GetTranslation("Toggled {switch_name} to {new_state}").format(
+                    switch_name=switch_name, new_state=new_state))
             else:
                 wx.MessageBox(f"Failed to toggle switch {switch_name}", "Error",
                             wx.OK | wx.ICON_ERROR)
