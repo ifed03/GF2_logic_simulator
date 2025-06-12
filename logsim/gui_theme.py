@@ -59,7 +59,9 @@ def is_dark_mode():
                 text=True
             )
             theme = result.stdout.strip().strip("'").lower()
-            return "dark" in theme
+            print(theme)
+            if "adwaita" in theme or "dark" in theme:
+                return True
         except Exception:
             return False  # Default to light if unknown
 
@@ -1094,6 +1096,9 @@ class Gui(wx.Frame):
             self.reset_button.Disable()
             self.continuous_button.Disable()
             self.cycles_spin.Disable()
+            self.all_off_btn.Disable()
+            self.all_on_btn.Disable()
+            self.toggle_switch_btn.Disable()
             
             # Start the simulation timer with current speed setting
             self.simulation_timer.Start(self.speed_settings[self.current_speed])
@@ -1128,6 +1133,11 @@ class Gui(wx.Frame):
         self.canvas.pan_x = 0
         self.canvas.init = False
         self.canvas.Refresh()
+
+        self.all_off_btn.Enable()
+        self.all_on_btn.Enable()
+        self.toggle_switch_btn.Enable()
+
 
         self.SetStatusText(wx.GetTranslation("Simulation reset"))
         
