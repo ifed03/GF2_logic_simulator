@@ -1,0 +1,56 @@
+dd2b216 - GUI: Graph draggable (21 hours ago) na-596 
+703049f - Linux friendly switches (22 hours ago) na-596 
+c099b5a - Switch design changed (28 hours ago) na-596 
+cbd4d31 - Changing monitor name locations (2 days ago) na-596 
+7bf0216 - fixed all format function issues (2 days ago) na-596 
+fc284aa - fixed a format issue (2 days ago) na-596 
+8ce8df6 - PEP8 for gui started (2 days ago) na-596 
+7be807d - Merge branch 'main' of https://github.com/RaghaRao314159/GF2_logic_simulator (2 days ago) na-596 
+23ec3f5 - Continuous running feature added (2 days ago) na-596 
+7ba12d8 - language updated in logsim (4 days ago) na-596 
+7a08c32 - language label updated (4 days ago) na-596 
+52ac516 - language if statement added (4 days ago) na-596 
+0662728 - language attempt updated (4 days ago) na-596 
+4ea5758 - attempted language (4 days ago) na-596 
+c167ec3 - (origin/windows_giu) light mode colour scheme (8 days ago) na-596 
+2d0f3a4 - Completed logsim (8 days ago) na-596 
+173501a - Check out git (8 days ago) na-596 
+107bf6c - Merge remote-tracking branch 'refs/remotes/origin/main' (8 days ago) na-596 
+f412df4 - GUI finished (8 days ago) na-596 
+5e94ce1 - GUI updated: Monitor colour palette (8 days ago) na-596 
+0b4ecbb - GUI updated: Aesthetics and features (8 days ago) na-596 
+ccaa622 - GUI updated: Select multiple devices (8 days ago) na-596 
+ff6069c - GUI updated: Zapping and Info (8 days ago) na-596 
+e973789 - GUI: Switch change feature added (8 days ago) na-596 
+2eef419 - Updated comments (8 days ago) na-596 
+6fbd45c - cleaned comma issue code (8 days ago) na-596 
+a624b1f - fix to error on comma (8 days ago) na-596 
+f4e8dd5 - GUI started (8 days ago) na-596 
+5071846 - checked name in monitor (9 days ago) na-596 
+c317533 - removed unused functions (9 days ago) na-596 
+c5a060e - monitor logic updated (9 days ago) na-596 
+44ab179 - monitor added (9 days ago) na-596 
+b09f8d2 - fixed missing comma issue (9 days ago) na-596 
+48dd025 - started testing (10 days ago) na-596 
+e54ea19 - connections finished (10 days ago) na-596 
+97e7310 - made connections (10 days ago) na-596 
+fdea3dd - connect parser started (11 days ago) na-596 
+b3b92e0 - device parser complete (11 days ago) na-596 
+f988889 - make device parser complete (11 days ago) na-596 
+4a2e46b - added XOR, DTYPE (11 days ago) na-596 
+f07c0c4 - just spotted the main function of devices (11 days ago) na-596 
+a1e8f04 - parse device updated (12 days ago) na-596 
+a9a8b61 - parse device (12 days ago) na-596 
+20b2bfa - signal name for parser (12 days ago) na-596 
+7ea544e - test_none_type (2 weeks ago) na-596 
+8cd3bc5 - scanner tests passed (2 weeks ago) na-596 
+b018318 - scanner comments (2 weeks ago) na-596 
+118bef7 - position_and_line_number (2 weeks ago) na-596 
+4e38b88 - get_number (2 weeks ago) na-596 
+4317c89 - SCANNER KEYWORDS (2 weeks ago) na-596 
+ae9b6c1 - test_lookup_multiple_lists (2 weeks ago) na-596 
+a253687 - test_query_nonexistent (3 weeks ago) na-596 
+04cd2fb - test_lookup_empty (3 weeks ago) na-596 
+9406e5e - test_lookup (3 weeks ago) na-596 
+f51a11b - lookup (3 weeks ago) na-596 
+c082503 - Example 2 EBNF edited (3 weeks ago) na-596 

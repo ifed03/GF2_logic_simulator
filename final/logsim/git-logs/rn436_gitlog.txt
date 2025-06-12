@@ -1,0 +1,203 @@
+95c8741 - (HEAD -> main) pep8 gui.py (7 hours ago) RaghaRao314159 
+4b9ba73 - final folder (7 hours ago) RaghaRao314159 
+005cf9a - pep8 (7 hours ago) RaghaRao314159 
+7ac0b32 - packaged files into folders (10 hours ago) RaghaRao314159 
+58c9175 - added disable button (12 hours ago) RaghaRao314159 
+409b70b - updated dark mode theme (12 hours ago) RaghaRao314159 
+02c5c09 - completed translations for every language (13 hours ago) RaghaRao314159 
+156eccc - added translatinos to everything (13 hours ago) RaghaRao314159 
+e6db6f4 - Dark mode can be activated from computer (20 hours ago) RaghaRao314159 
+4d1cc01 - attempt at using dark mode from system settings. Have to try from linux (20 hours ago) RaghaRao314159 
+edf5cc5 - translation script for pipelining translation (21 hours ago) Raghavendra Narayan Rao 
+49dad7c - created definition files (23 hours ago) RaghaRao314159 
+abf68ba - updated yoruba and added kannada (3 days ago) RaghaRao314159 
+e8fdd51 - added language support (3 days ago) RaghaRao314159 
+a9f0869 - changed an error message (4 days ago) RaghaRao314159 
+106a381 - changed an error message (4 days ago) RaghaRao314159 
+d462b12 - added language input to GUI class (5 days ago) RaghaRao314159 
+047c7f4 - period 0 error fixed (7 days ago) RaghaRao314159 
+8e022af - fixed a bug where missed semicolons were being incorrectly labelled (8 days ago) RaghaRao314159 
+5e90489 - testing for linux, switches toggle (8 days ago) RaghaRao314159 
+093d598 - testing for linux, switches (8 days ago) RaghaRao314159 
+4a4b4c9 - testing for linux (8 days ago) RaghaRao314159 
+da53437 - better readme (8 days ago) RaghaRao314159 
+801b606 - bug fixed where END is placed at the start (8 days ago) RaghaRao314159 
+de0747d - PEP8 enforced on prelim (8 days ago) RaghaRao314159 
+69e25d7 - PEP8 enforced on all files except test_parser.py (8 days ago) RaghaRao314159 
+a512a78 - added positive test cases for parser (8 days ago) RaghaRao314159 
+ca9d507 - prelim tests all pass now, the issue was a type check for invalid name ids that was missing in previous code (8 days ago) RaghaRao314159 
+86e79fd - pytest parser complete (8 days ago) RaghaRao314159 
+e9eb229 - fixed last error (9 days ago) RaghaRao314159 
+acf7a05 - tested 8 possible errors in parser (9 days ago) RaghaRao314159 
+1717c29 - fixed a bug in parser self.scanner.type is called when self.symbol.type should have been caled. This bug causes loop to not break but instead raise error when EOF is encountered (9 days ago) RaghaRao314159 
+751fed1 - all observable  bugs fixed. The final issue was actually in the test EBNF files rather than the parser code (9 days ago) RaghaRao314159 
+41735d3 - fixed an extra get symbol error (9 days ago) RaghaRao314159 
+c8a1d54 - found a bug with next_symbol. To be fixed (10 days ago) RaghaRao314159 
+c3dde73 - no error bug fixed (10 days ago) RaghaRao314159 
+ac60670 - fixed bug in device types (10 days ago) RaghaRao314159 
+5322841 - completed parser (10 days ago) RaghaRao314159 
+5322841 - completed parser (10 days ago) RaghaRao314159 
+95c8741 - (HEAD -> main) pep8 gui.py (7 hours ago) RaghaRao314159 
+4b9ba73 - final folder (7 hours ago) RaghaRao314159 
+005cf9a - pep8 (7 hours ago) RaghaRao314159 
+7ac0b32 - packaged files into folders (10 hours ago) RaghaRao314159 
+58c9175 - added disable button (12 hours ago) RaghaRao314159 
+409b70b - updated dark mode theme (12 hours ago) RaghaRao314159 
+02c5c09 - completed translations for every language (13 hours ago) RaghaRao314159 
+156eccc - added translatinos to everything (13 hours ago) RaghaRao314159 
+e6db6f4 - Dark mode can be activated from computer (20 hours ago) RaghaRao314159 
+4d1cc01 - attempt at using dark mode from system settings. Have to try from linux (20 hours ago) RaghaRao3141
+59 
+edf5cc5 - translation script for pipelining translation (21 hours ago) Raghavendra Narayan Rao 
+49dad7c - created definition files (23 hours ago) RaghaRao314159 
+abf68ba - updated yoruba and added kannada (3 days ago) RaghaRao314159 
+e8fdd51 - added language support (3 days ago) RaghaRao314159 
+a9f0869 - changed an error message (4 days ago) RaghaRao314159 
+106a381 - changed an error message (4 days ago) RaghaRao314159 
+d462b12 - added language input to GUI class (5 days ago) RaghaRao314159 
+047c7f4 - period 0 error fixed (7 days ago) RaghaRao314159 
+8e022af - fixed a bug where missed semicolons were being incorrectly labelled (8 days ago) RaghaRao314159 
+5e90489 - testing for linux, switches toggle (8 days ago) RaghaRao314159 
+093d598 - testing for linux, switches (8 days ago) RaghaRao314159 
+4a4b4c9 - testing for linux (8 days ago) RaghaRao314159 
+da53437 - better readme (8 days ago) RaghaRao314159 
+801b606 - bug fixed where END is placed at the start (8 days ago) RaghaRao314159 
+de0747d - PEP8 enforced on prelim (8 days ago) RaghaRao314159 
+69e25d7 - PEP8 enforced on all files except test_parser.py (8 days ago) RaghaRao314159 
+a512a78 - added positive test cases for parser (8 days ago) RaghaRao314159 
+ca9d507 - prelim tests all pass now, the issue was a type check for invalid name ids that was missing in prev
+ious code (8 days ago) RaghaRao314159 
+86e79fd - pytest parser complete (8 days ago) RaghaRao314159 
+e9eb229 - fixed last error (9 days ago) RaghaRao314159 
+acf7a05 - tested 8 possible errors in parser (9 days ago) RaghaRao314159 
+1717c29 - fixed a bug in parser self.scanner.type is called when self.symbol.type should have been caled. Thi
+s bug causes loop to not break but instead raise error when EOF is encountered (9 days ago) RaghaRao314159 
+751fed1 - all observable  bugs fixed. The final issue was actually in the test EBNF files rather than the par
+ser code (9 days ago) RaghaRao314159 
+41735d3 - fixed an extra get symbol error (9 days ago) RaghaRao314159 
+c8a1d54 - found a bug with next_symbol. To be fixed (10 days ago) RaghaRao314159 
+c3dde73 - no error bug fixed (10 days ago) RaghaRao314159 
+ac60670 - fixed bug in device types (10 days ago) RaghaRao314159 
+5322841 - completed parser (10 days ago) RaghaRao314159 
+c7ba2b4 - completed in_signame function in parser (10 days ago) RaghaRao314159 
+a5875e5 - removed deprecated version of add device function (11 days ago) RaghaRao314159 
+fbb25ca - made error function loop until set of stopping symbol (11 days ago) RaghaRao314159 
+be36f8a - Merge branch 'main' of https://github.com/RaghaRao314159/GF2_logic_simulator (11 days ago) RaghaRao
+314159 
+2d44115 - unwanted changes (11 days ago) RaghaRao314159 
+f1b0c47 - merged (12 days ago) RaghaRao314159 
+8112b1c - new lines added to end of test files to check for robustness of tests (12 days ago) RaghaRao314159 
+526ea39 - added TODOs (12 days ago) RaghaRao314159 
+20e54b9 - added TODOs (13 days ago) RaghaRao314159 
+34039ca - initialised parser (13 days ago) RaghaRao314159 
+ba663ac - added test for open comments (13 days ago) RaghaRao314159 
+66f7971 - just moved around where symbol position is set (2 weeks ago) RaghaRao314159 
+3ec2d08 - scanner tests print error (2 weeks ago) RaghaRao314159 
+143a472 - added ife's scanner (2 weeks ago) RaghaRao314159 
+af6dfc2 - updated where pl is updated (2 weeks ago) RaghaRao314159 
+fdda077 - fixed scanner (2 weeks ago) RaghaRao314159 
+70d7871 - added advance all over (2 weeks ago) RaghaRao314159 
+70427e9 - comments added (2 weeks ago) RaghaRao314159 
+30fd6e5 - added prining function (2 weeks ago) RaghaRao314159 
+ff7b953 - skip_spaces (2 weeks ago) RaghaRao314159 
+72a39a8 - added advance to scanner (2 weeks ago) RaghaRao314159 
+23dec66 - initialised scanner (2 weeks ago) RaghaRao314159 
+7071248 - initialised scanner (2 weeks ago) RaghaRao314159 
+8a44f5c - added fixtures (2 weeks ago) RaghaRao314159 
+91b0d0c - ife coocked (2 weeks ago) RaghaRao314159 
+d0e189c - more edge cases for test_query in names (2 weeks ago) RaghaRao314159 
+7efc2c9 - more edge cases for test_query in names (2 weeks ago) RaghaRao314159 
+5e92d9d - more edge cases for test_query in names (2 weeks ago) RaghaRao314159 
+a91b879 - more edge cases for test_query in names (2 weeks ago) RaghaRao314159 
+00ba611 - more edge cases for test_query in names (2 weeks ago) RaghaRao314159 
+014289b - more edge cases for test_query in names (3 weeks ago) RaghaRao314159 
+f1ae6c1 - test_names test query done (3 weeks ago) RaghaRao314159 
+29b0a4e - simplified query function (3 weeks ago) RaghaRao314159 
+e0367ea - names query function (3 weeks ago) RaghaRao314159 
+6fe6a7a - Update EBNF.txt (3 weeks ago) Raghavendra Narayan Rao 
+8fd1cd7 - Ragha EBNF comments (4 weeks ago) RaghaRao314159 
+000335c - Ragha EBNF attempt (4 weeks ago) RaghaRao314159 
+dde0578 - logsim added (4 weeks ago) RaghaRao314159 
+8102fea - Initial commit (4 weeks ago) Raghavendra Narayan Rao 
+(base) ragharao@Raghas-MacBook-Pro GF2_logic_simulator % cd logsim
+(base) ragharao@Raghas-MacBook-Pro logsim % cd logsim
+cd: no such file or directory: logsim
+(base) ragharao@Raghas-MacBook-Pro logsim % git log --author=RaghaRao31415
+95c8741 - (HEAD -> main) pep8 gui.py (7 hours ago) RaghaRao314159 
+4b9ba73 - final folder (7 hours ago) RaghaRao314159 
+005cf9a - pep8 (7 hours ago) RaghaRao314159 
+7ac0b32 - packaged files into folders (10 hours ago) RaghaRao314159 
+58c9175 - added disable button (12 hours ago) RaghaRao314159 
+409b70b - updated dark mode theme (12 hours ago) RaghaRao314159 
+02c5c09 - completed translations for every language (13 hours ago) RaghaRao314159 
+156eccc - added translatinos to everything (13 hours ago) RaghaRao314159 
+e6db6f4 - Dark mode can be activated from computer (20 hours ago) RaghaRao314159 
+4d1cc01 - attempt at using dark mode from system settings. Have to try from linux (20 hours ago) RaghaRao314159 
+edf5cc5 - translation script for pipelining translation (21 hours ago) Raghavendra Narayan Rao 
+49dad7c - created definition files (23 hours ago) RaghaRao314159 
+abf68ba - updated yoruba and added kannada (3 days ago) RaghaRao314159 
+e8fdd51 - added language support (3 days ago) RaghaRao314159 
+a9f0869 - changed an error message (4 days ago) RaghaRao314159 
+106a381 - changed an error message (4 days ago) RaghaRao314159 
+d462b12 - added language input to GUI class (5 days ago) RaghaRao314159 
+047c7f4 - period 0 error fixed (7 days ago) RaghaRao314159 
+8e022af - fixed a bug where missed semicolons were being incorrectly labelled (8 days ago) RaghaRao314159 
+5e90489 - testing for linux, switches toggle (8 days ago) RaghaRao314159 
+093d598 - testing for linux, switches (8 days ago) RaghaRao314159 
+4a4b4c9 - testing for linux (8 days ago) RaghaRao314159 
+da53437 - better readme (8 days ago) RaghaRao314159 
+801b606 - bug fixed where END is placed at the start (8 days ago) RaghaRao314159 
+de0747d - PEP8 enforced on prelim (8 days ago) RaghaRao314159 
+69e25d7 - PEP8 enforced on all files except test_parser.py (8 days ago) RaghaRao314159 
+a512a78 - added positive test cases for parser (8 days ago) RaghaRao314159 
+ca9d507 - prelim tests all pass now, the issue was a type check for invalid name ids that was missing in previous code (8 days ago) RaghaRao314159 
+86e79fd - pytest parser complete (8 days ago) RaghaRao314159 
+e9eb229 - fixed last error (9 days ago) RaghaRao314159 
+acf7a05 - tested 8 possible errors in parser (9 days ago) RaghaRao314159 
+1717c29 - fixed a bug in parser self.scanner.type is called when self.symbol.type should have been caled. This bug causes loop to not break but instead raise error when EOF is encountered (9 days ago) RaghaRao314159 
+751fed1 - all observable  bugs fixed. The final issue was actually in the test EBNF files rather than the parser code (9 days ago) RaghaRao314159 
+41735d3 - fixed an extra get symbol error (9 days ago) RaghaRao314159 
+c8a1d54 - found a bug with next_symbol. To be fixed (10 days ago) RaghaRao314159 
+c3dde73 - no error bug fixed (10 days ago) RaghaRao314159 
+ac60670 - fixed bug in device types (10 days ago) RaghaRao314159 
+5322841 - completed parser (10 days ago) RaghaRao314159 
+c7ba2b4 - completed in_signame function in parser (10 days ago) RaghaRao314159 
+a5875e5 - removed deprecated version of add device function (11 days ago) RaghaRao314159 
+fbb25ca - made error function loop until set of stopping symbol (11 days ago) RaghaRao314159 
+be36f8a - Merge branch 'main' of https://github.com/RaghaRao314159/GF2_logic_simulator (11 days ago) RaghaRao
+314159 
+2d44115 - unwanted changes (11 days ago) RaghaRao314159 
+f1b0c47 - merged (12 days ago) RaghaRao314159 
+8112b1c - new lines added to end of test files to check for robustness of tests (12 days ago) RaghaRao314159 
+526ea39 - added TODOs (12 days ago) RaghaRao314159 
+20e54b9 - added TODOs (13 days ago) RaghaRao314159 
+34039ca - initialised parser (13 days ago) RaghaRao314159 
+ba663ac - added test for open comments (13 days ago) RaghaRao314159 
+66f7971 - just moved around where symbol position is set (2 weeks ago) RaghaRao314159 
+3ec2d08 - scanner tests print error (2 weeks ago) RaghaRao314159 
+143a472 - added ife's scanner (2 weeks ago) RaghaRao314159 
+af6dfc2 - updated where pl is updated (2 weeks ago) RaghaRao314159 
+fdda077 - fixed scanner (2 weeks ago) RaghaRao314159 
+70d7871 - added advance all over (2 weeks ago) RaghaRao314159 
+70427e9 - comments added (2 weeks ago) RaghaRao314159 
+30fd6e5 - added prining function (2 weeks ago) RaghaRao314159 
+ff7b953 - skip_spaces (2 weeks ago) RaghaRao314159 
+72a39a8 - added advance to scanner (2 weeks ago) RaghaRao314159 
+23dec66 - initialised scanner (2 weeks ago) RaghaRao314159 
+7071248 - initialised scanner (2 weeks ago) RaghaRao314159 
+8a44f5c - added fixtures (2 weeks ago) RaghaRao314159 
+91b0d0c - ife coocked (2 weeks ago) RaghaRao314159 
+d0e189c - more edge cases for test_query in names (2 weeks ago) RaghaRao314159 
+7efc2c9 - more edge cases for test_query in names (2 weeks ago) RaghaRao314159 
+5e92d9d - more edge cases for test_query in names (2 weeks ago) RaghaRao314159 
+a91b879 - more edge cases for test_query in names (2 weeks ago) RaghaRao314159 
+00ba611 - more edge cases for test_query in names (3 weeks ago) RaghaRao314159 
+014289b - more edge cases for test_query in names (3 weeks ago) RaghaRao314159 
+f1ae6c1 - test_names test query done (3 weeks ago) RaghaRao314159 
+29b0a4e - simplified query function (3 weeks ago) RaghaRao314159 
+e0367ea - names query function (3 weeks ago) RaghaRao314159 
+6fe6a7a - Update EBNF.txt (3 weeks ago) Raghavendra Narayan Rao 
+8fd1cd7 - Ragha EBNF comments (4 weeks ago) RaghaRao314159 
+000335c - Ragha EBNF attempt (4 weeks ago) RaghaRao314159 
+dde0578 - logsim added (4 weeks ago) RaghaRao314159 
+8102fea - Initial commit (4 weeks ago) Raghavendra Narayan Rao

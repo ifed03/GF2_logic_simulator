@@ -1,0 +1,49 @@
+7ccb91d - clock period zero error added to tests (2 days ago) ifed03 
+9b3dfa4 - test maintenance complete (2 days ago) ifed03 
+d973666 - switch 01 is now flagged as error (2 days ago) ifed03 
+c6a1db5 - Merge branch 'main' of https://github.com/RaghaRao314159/GF2_logic_simulator (2 days ago) ifed03 
+e7c321e - siggen waveform can detect leading zeros (2 days ago) ifed03 
+ed77c3e - gui dark mode light mode switch correction (8 days ago) ifed03 
+4df2388 - network connectivity checked (8 days ago) ifed03 
+c92f50a - gui colour scheme and help menu added (8 days ago) ifed03 
+5003234 - gui colour scheme and help menu added (8 days ago) ifed03 
+cf38d71 - update (8 days ago) ifed03 
+984f9c8 - repeated device bug after attempting to break code (8 days ago) ifed03 
+02fff9c - enforced pep-8 on test_parser (8 days ago) ifed03 
+fd30137 - tests for parser updated (8 days ago) ifed03 
+401bc64 - tests for parser started (8 days ago) ifed03 
+14fb697 - tests for parser complete (9 days ago) ifed03 
+869a577 - command line interface for logsim works (9 days ago) ifed03 
+2abe35c - update (9 days ago) ifed03 
+088b5b5 - edge case: error on semicolon (9 days ago) ifed03 
+d3358ed - out signal complete (10 days ago) ifed03 
+8faa1e1 - update (11 days ago) ifed03 
+375269e - added comma to stopping symbols (11 days ago) ifed03 
+7e9a6f7 - make_device_parser CLOCK and SWITCH included (11 days ago) ifed03 
+5e7197a - make_device_parser NOR gate included (11 days ago) ifed03 
+2006883 - make_device_parser NAND gate included (11 days ago) ifed03 
+21806fa - make_device AND, OR gates included (11 days ago) ifed03 
+2847bc3 - device list created (12 days ago) ifed03 
+6069688 - test for comment errors (2 weeks ago) ifed03 
+975dd4e - (origin/scanner_ragha) tracking comments update (2 weeks ago) ifed03 
+418677e - test (2 weeks ago) ifed03 
+027c45d - test (2 weeks ago) ifed03 
+fd035ca - separate attempt (2 weeks ago) ifed03 
+04d165c - separate attempt (2 weeks ago) ifed03 
+9d52d49 - update (2 weeks ago) ifed03 
+a0bf8d8 - adder test (2 weeks ago) ifed03 
+b78beb9 - create tests for scannerq (2 weeks ago) ifed03 
+30c1e61 - scanner update (2 weeks ago) ifed03 
+4acf5a2 - scanner update (2 weeks ago) ifed03 
+1fe8d87 - update (2 weeks ago) ifed03 
+5bc3957 - test_get_name_string added (2 weeks ago) ifed03 
+3d61f4e - getNameString added (3 weeks ago) ifed03 
+8807064 - update (3 weeks ago) ifed03 
+a932b79 - cursed example (3 weeks ago) ifed03 
+01fd677 - example updates (3 weeks ago) ifed03 
+ff15813 - example updates (3 weeks ago) ifed03 
+6e8a2c9 - EBNF Example Two Initial (3 weeks ago) ifed03 
+088598e - EBNF Example One update (3 weeks ago) ifed03 
+b1cb7b4 - Example one update (3 weeks ago) ifed03 
+44683fa - EBNF example one (3 weeks ago) ifed03 
+3da85b4 - start writing EBNF examples (3 weeks ago) ifed03
