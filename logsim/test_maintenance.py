@@ -28,6 +28,7 @@ def parser_with_flip_flop():
 
     return parser, names, devices, network, monitors
 
+
 @pytest.fixture
 def parser_with_error_devices():
     """Return a parser instance with error test file one."""
@@ -77,6 +78,7 @@ def test_monitor_connections_flip_flop(parser_with_flip_flop):
     assert "N1" in monitored_signals
     assert "SI1" in monitored_signals
     assert len(monitored_signals) == 3
+
 
 def test_parser_error_devices(parser_with_error_devices, capsys):
     """Test if the parser correctly handles errors in

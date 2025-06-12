@@ -117,8 +117,11 @@ class Devices:
                              self.FALLING, self.BLANK] = range(5)
         self.gate_types = [self.AND, self.OR, self.NAND, self.NOR,
                            self.XOR] = self.names.lookup(gate_strings)
-        self.device_types = [self.CLOCK, self.SWITCH,
-                             self.D_TYPE, self.SIGGEN] = self.names.lookup(device_strings)
+        self.device_types = [
+            self.CLOCK, self.SWITCH,
+            self.D_TYPE, self.SIGGEN
+        ] = self.names.lookup(device_strings)
+
         self.dtype_input_ids = [self.CLK_ID, self.SET_ID, self.CLEAR_ID,
                                 self.DATA_ID] = self.names.lookup(dtype_inputs)
         self.dtype_output_ids = [
@@ -244,8 +247,8 @@ class Devices:
     def make_siggen(self, device_id, siggen_waveform):
         """Make a siggen device with the user's specified binary waveform.
 
-        siggen_waveform is a bit string of any length. It generates an 
-        arbitrary (but periodic) waveform bonary waveform instead of a 
+        siggen_waveform is a bit string of any length. It generates an
+        arbitrary (but periodic) waveform bonary waveform instead of a
         regular square wave.
         """
         self.add_device(device_id, self.SIGGEN)
@@ -296,7 +299,7 @@ class Devices:
                 elif str(siggen.siggen_waveform)[0] == '0':
                     siggen_signal = self.LOW
                 else:
-                    print ('cold setup for siggen not working!')
+                    print('cold setup for siggen not working!')
                 self.add_output(device.device_id, output_id=None,
                                 signal=siggen_signal)
                 # Initialise it to a random point in its cycle.
@@ -335,12 +338,11 @@ class Devices:
             # Device property is the binary waveform (a sequence of bits)
             if device_property is None:
                 error_type = self.NO_QUALIFIER
-            elif set(device_property).issubset({'0','1'}):
+            elif set(device_property).issubset({'0', '1'}):
                 self.make_siggen(device_id, device_property)
                 error_type = self.NO_ERROR
             else:
                 error_type = self.INVALID_QUALIFIER
-
 
         elif device_kind in self.gate_types:
             # Device property is the number of inputs

@@ -48,9 +48,9 @@ class Parser:
             self.DEVICE_ABSENT, self.INPUT_CONNECTED, self.INPUT_TO_INPUT,
             self.PORT_ABSENT, self.OUTPUT_TO_OUTPUT, self.NOT_CONNECTED,
             self.INVALID_PORT, self.INVALID_PORT_DTYPE,
-            self.INVALID_PORT_XOR, self.NOT_I_PORT, self.PORT_OUT_RANGE, 
-            self.NOT_END, self.REPEATED_MONITOR, self.REPEATED_DEVICE, 
-            self.MISSED_SEMICOLON, self.NONBINARY_WAVEFORM, self.NO_WAVEFORM, 
+            self.INVALID_PORT_XOR, self.NOT_I_PORT, self.PORT_OUT_RANGE,
+            self.NOT_END, self.REPEATED_MONITOR, self.REPEATED_DEVICE,
+            self.MISSED_SEMICOLON, self.NONBINARY_WAVEFORM, self.NO_WAVEFORM,
             self.NO_PERIOD
         ] = range(33)
         # Device types that require dot notation for ports
@@ -91,28 +91,28 @@ class Parser:
                 # Error: expected a section keyword
                 self.error(self.NO_INITIALISATION_KEYWORD)
             self.parent = None
-        
+
         if self.error_count == 0 and not self.network.check_network():
             print()
             print("Error: Network connectivity issues found")
             print()
             self.error_count += 1
-            
-        
+
         # check if no devices are present
-        if ((self.error_count == 0) and (len(self.devices.find_devices()) == 0) 
-        and (len(self.monitors.get_signal_names()[0]) == 0) 
-        and (len(self.monitors.get_signal_names()[1]) == 0)):
+        if (
+            (self.error_count == 0) and (len(self.devices.find_devices()) == 0)
+            and (len(self.monitors.get_signal_names()[0]) == 0)
+            and (len(self.monitors.get_signal_names()[1]) == 0)
+        ):
             self.error_count += 1
             print()
             print("Error: Empty File")
             print()
-        
 
         if self.error_count > 0:
             print(f"Summary: {self.error_count} error/s found\n")
             return False
-        
+
         return True
 
     def end_of_file(self):
@@ -154,7 +154,8 @@ class Parser:
                     return error
             else:
                 error = self.devices.make_device(
-                    device_id, self.devices.AND, device_property=self.symbol.id)
+                    device_id, self.devices.AND,
+                    device_property=self.symbol.id)
         elif device_type_id == self.scanner.OR_ID:
             if self.symbol.type != self.scanner.NUMBER:
                 error = self.NO_NUMBER
@@ -162,7 +163,8 @@ class Parser:
                     return error
             else:
                 error = self.devices.make_device(
-                    device_id, self.devices.OR, device_property=self.symbol.id)
+                    device_id, self.devices.OR,
+                    device_property=self.symbol.id)
         elif device_type_id == self.scanner.NAND_ID:
             if self.symbol.type != self.scanner.NUMBER:
                 error = self.NO_NUMBER
@@ -170,7 +172,8 @@ class Parser:
                     return error
             else:
                 error = self.devices.make_device(
-                    device_id, self.devices.NAND, device_property=self.symbol.id)
+                    device_id, self.devices.NAND,
+                    device_property=self.symbol.id)
         elif device_type_id == self.scanner.NOR_ID:
             if self.symbol.type != self.scanner.NUMBER:
                 error = self.NO_NUMBER
@@ -178,7 +181,8 @@ class Parser:
                     return error
             else:
                 error = self.devices.make_device(
-                    device_id, self.devices.NOR, device_property=self.symbol.id)
+                    device_id, self.devices.NOR,
+                    device_property=self.symbol.id)
         # Check for missing or invalid qualifiers
         if error == self.devices.NO_QUALIFIER:
             error = self.NO_NUMBER
@@ -196,7 +200,8 @@ class Parser:
                     return error
             else:
                 error = self.devices.make_device(
-                    device_id, self.devices.CLOCK, device_property=self.symbol.id)
+                    device_id, self.devices.CLOCK,
+                    device_property=self.symbol.id)
                 if error == self.devices.NO_QUALIFIER:
                     error = self.NO_PERIOD
                 elif error == self.devices.NO_ERROR:
@@ -213,7 +218,8 @@ class Parser:
                     return error
             else:
                 error = self.devices.make_device(
-                    device_id, self.devices.SIGGEN, device_property=self.symbol.id)
+                    device_id, self.devices.SIGGEN,
+                    device_property=self.symbol.id)
                 if error == self.devices.NO_QUALIFIER:
                     error = self.NO_WAVEFORM
                 elif error == self.devices.NO_ERROR:
@@ -230,12 +236,13 @@ class Parser:
                     return error
             else:
                 error = self.devices.make_device(
-                    device_id, self.devices.SWITCH, device_property=self.symbol.id)
+                    device_id, self.devices.SWITCH,
+                    device_property=self.symbol.id)
                 if error in [
                     self.devices.NO_QUALIFIER,
                     self.devices.INVALID_QUALIFIER
                 ]:
-                    if error == self.devices.NO_QUALIFIER:  
+                    if error == self.devices.NO_QUALIFIER:
                         error = self.NOT_BIT
                         return error
                     error = self.NOT_BIT
@@ -319,7 +326,7 @@ class Parser:
                 if self.symbol.type == self.scanner.DOT:
                     if device_type_id in [
                         self.devices.SWITCH,
-                        self.devices.CLOCK, 
+                        self.devices.CLOCK,
                         self.devices.SIGGEN
                     ]:
                         return self.DOT
@@ -354,7 +361,7 @@ class Parser:
             if self.devices.get_device(device_id) is None:
                 return self.DEVICE_ABSENT
             device_type_id = self.devices.get_device(device_id).device_kind
-            if device_type_id in [self.devices.SWITCH, self.devices.CLOCK, 
+            if device_type_id in [self.devices.SWITCH, self.devices.CLOCK,
                                   self.devices.SIGGEN]:
                 return self.INVALID_CONNECTION_SC
             self.symbol = self.scanner.get_symbol()
@@ -550,8 +557,7 @@ class Parser:
             print(self.scanner.print_error(self.symbol))
             print()
             return
-            
-        
+
         self.error_count += 1
         stopping_punctuation_flag = False
         if error_type == self.NO_SEMICOLON:
@@ -611,7 +617,7 @@ class Parser:
         elif error_type == self.INVALID_PORT_XOR:
             print("Port Absent, Invalid port number for XOR device")
         elif error_type == self.NOT_END:
-            print("Expected file to end after END keyword") 
+            print("Expected file to end after END keyword")
         elif error_type == self.REPEATED_MONITOR:
             print("Signal cannot be monitored more than once")
         elif error_type == self.CLOCK_PERIOD_ZERO:
@@ -623,19 +629,19 @@ class Parser:
         print(f"LINE {self.symbol.line_number}:")
         print(self.scanner.print_error(self.symbol))
         print()
-        if self.symbol.type == self.scanner.COMMA and self.parent != None:
+        if self.symbol.type == self.scanner.COMMA and self.parent is not None:
             return
         if self.symbol.type == self.scanner.SEMICOLON:
             self.symbol = self.scanner.get_symbol()
             self.parent = None
             return
-        
+
         if self.symbol.id in [
                 self.scanner.DEVICES_ID, self.scanner.CONNECT_ID,
                 self.scanner.MONITOR_ID, self.scanner.END_ID]:
             self.parent = None
             return
-        
+
         while self.symbol.type != self.scanner.EOF:
             self.symbol = self.scanner.get_symbol()
             if self.parent and self.symbol.type == self.scanner.COMMA:
