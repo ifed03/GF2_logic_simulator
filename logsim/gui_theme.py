@@ -21,50 +21,50 @@ from monitors import Monitors
 from scanner import Scanner
 from parse import Parser
 
+import platform
+import subprocess
+
 import os
 
+def is_dark_mode():
+    system = platform.system()
 
-HELP_MESSAGE = """
-How to Use the Logic Simulator GUI
+    if system == "Windows":
+        try:
+            import winreg
+            key = winreg.OpenKey(
+                winreg.HKEY_CURRENT_USER,
+                r"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize"
+            )
+            value, _ = winreg.QueryValueEx(key, "AppsUseLightTheme")
+            return value == 0  # 0 = Dark, 1 = Light
+        except Exception:
+            return False  # Default to light if undetectable
 
----
+    elif system == "Darwin":  # macOS
+        try:
+            result = subprocess.run(
+                ["defaults", "read", "-g", "AppleInterfaceStyle"],
+                capture_output=True,
+                text=True
+            )
+            return result.stdout.strip().lower() == "dark"
+        except Exception:
+            return False  # Default to light if key doesn't exist
 
-**Keybinds**
-- **F1:** Show this Help window
-- **Alt+F4:** Exit the application
-- **Spacebar:** Run/Pause the simulation
+    elif system == "Linux":
+        try:
+            result = subprocess.run(
+                ["gsettings", "get", "org.gnome.desktop.interface", "gtk-theme"],
+                capture_output=True,
+                text=True
+            )
+            theme = result.stdout.strip().strip("'").lower()
+            return "dark" in theme
+        except Exception:
+            return False  # Default to light if unknown
 
-**Simulation Controls**
-- **Number of Cycles:** Set how many cycles to run the simulation for.
-- **▶ Run Simulation:** Start the simulation for the chosen number of cycles.
-- **❚❚ Pause:** Pause the simulation at any time.
-- **■ Reset:** Reset the simulation and clear all monitor data.
-- **Speed:** Click to cycle through simulation speeds (x0.5, x1, x2, x4, x8).
-
-**Switch Controls**
-- Toggle individual switches by clicking the switch in the list.
-- Use **All On** or **All Off** to set all switches high or low.
-
-**Monitors**
-- Add a monitor to track a signal by clicking **Add Monitor** and selecting a signal.
-- Use **Add All** in the dialog to monitor all available signals.
-- Remove a monitor by clicking the ✕ button next to it, or **Zap All** to remove all monitors.
-- The monitor list shows the current state of each monitored signal.
-
-**Signal Display Canvas**
-- The main area shows waveforms for all monitored signals.
-- **Pan:** Click and drag to move the view.
-- **Zoom:** Use the mouse wheel to zoom in/out.
-- Signal colors match the color bars in the monitor list.
-
-**Themes**
-- Switch between Light and Dark mode from the Theme menu.
-
-**Status Bar**
-- The status bar at the bottom shows helpful messages and feedback.
-
-For more help, see the project documentation or contact the authors.
-"""
+    return False  # Default fallback
 
 
 class MyGLCanvas(wxcanvas.GLCanvas):
@@ -753,7 +753,7 @@ class Gui(wx.Frame):
         ]
         
         # Automatically set theme based on system appearance
-        if wx.SystemSettings.GetAppearance().IsDark():
+        if is_dark_mode():
             print("DARK MODE NOW")
             self.current_theme = self.dark_theme
         else:
