@@ -339,18 +339,8 @@ class MyGLCanvas(wxcanvas.GLCanvas):
 
     def on_mouse(self, event):
         """Handle mouse events."""
-        text = ""
-        size = self.GetClientSize()
-        
-        # Calculate object coordinates of the mouse position
-        ox = (event.GetX() - self.pan_x) / self.zoom
-        oy = (size.height - event.GetY() - self.pan_y) / self.zoom
-        
-        old_zoom = self.zoom
-        
         if event.GetWheelRotation() != 0:
             # Handle vertical scrolling (pan up/down)
-            max_time_units = max(int(self.get_viewport_width() / 30), max((len(signal_list) for signal_list in self.signal_data.values()), default=0))
             num_signals = len(self.signal_data)
             self.max_pan_y = num_signals * 6
             self.max_pan_x = self.get_max_scroll_x()
@@ -358,17 +348,37 @@ class MyGLCanvas(wxcanvas.GLCanvas):
             if not event.ShiftDown():
                 self.pan_y -= event.GetWheelRotation() * self.scroll_sensitivity * 20
                 self.pan_y = max(-self.max_pan_y, min(self.pan_y, 0))
-                text = "Vertical scroll"
             
             # Handle horizontal scrolling (pan left/right) when Shift is held
             else:
                 self.pan_x -= event.GetWheelRotation() * self.scroll_sensitivity * 20
                 self.pan_x = max(-self.max_pan_x, min(self.pan_x, 0))
-                text = "Horizontal scroll"
             
             self.init = False
+        
+        # Calculate max pan values once (same as in wheel handling)
+        num_signals = len(self.signal_data)
+        max_pan_y = num_signals * 6
+        max_pan_x = self.get_max_scroll_x()
+        
+        if event.ButtonDown():
+            self.last_mouse_x = event.GetX()
+            self.last_mouse_y = event.GetY()
+            
+        if event.Dragging():
+            # Calculate proposed new pan values
+            new_pan_x = self.pan_x + (event.GetX() - self.last_mouse_x)
+            new_pan_y = self.pan_y - (event.GetY() - self.last_mouse_y)
+            
+            # Apply constraints (same as wheel scrolling)
+            self.pan_x = max(-max_pan_x, min(new_pan_x, 0))
+            self.pan_y = max(-max_pan_y, min(new_pan_y, 0))
+            
+            self.last_mouse_x = event.GetX()
+            self.last_mouse_y = event.GetY()
+            self.init = False
                 
-        self.Refresh() 
+        self.Refresh()
 
     def get_viewport_width(self):
         """Return the visible width of the canvas in pixels."""
